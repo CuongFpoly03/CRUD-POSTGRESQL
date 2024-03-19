@@ -1,0 +1,17 @@
+//schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://admin:admin@localhost:5432/projectone"
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  username String
+  email String @unique
+  password String
+  @@map(name: "users")
+}
+
+generator client {
+  provider = "prisma-client-js"
+} 
